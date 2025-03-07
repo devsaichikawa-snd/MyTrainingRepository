@@ -1,0 +1,2 @@
+# SpartanCamp_PJ
+スパルタキャンプ2022秋のPython編in平泉

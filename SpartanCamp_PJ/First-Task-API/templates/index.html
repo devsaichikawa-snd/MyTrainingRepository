@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動物API_Top</title>
+</head>
+
+<body>
+    <h1>あなたの相棒を決定します</h1>
+    <h2>動物を選択してください</h2>
+    <form action="/animal" method="post" enctype="multipart/form-data">
+        <select type="file" name="selectAnimal" accept=".png, .jpg, .jpeg, .webp">
+            <option value="dog">犬</option>
+            <option value="cat">猫</option>
+            <option value="fox">狐</option>
+        </select>
+        <input type="submit" value="選択する">
+    </form>
+</body>
+
+</html>

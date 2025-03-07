@@ -1,0 +1,9 @@
+@use "sass:math";
+//@import "child";
+@use "child" as *;
+
+h1 {
+    background: orange;
+    font-size: math.div(30px, 2);
+}
+

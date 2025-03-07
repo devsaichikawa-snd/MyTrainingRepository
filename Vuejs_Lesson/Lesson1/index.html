@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-once -->
+        <h3>v-once</h3>
+        <p v-once>{{ message }}</p>
+        <button v-on:click="clickHandler">Click</button>
+        <p>-----------------------------------</p>
+
+        <!-- v-pre -->
+        <h3>v-pre</h3>
+        <p v-pre>{{ message }}</p>
+        <p>-----------------------------------</p>
+
+        <!-- v-html -->
+        <h3>v-html</h3>
+        <p v-html="message_red"></p>
+        <p>-----------------------------------</p>
+
+        <!-- v-cloak -->
+        <h3>v-cloak</h3>
+        <p v-cloak>{{ message }}</p>
+        <p>-----------------------------------</p>
+
+        <!-- v-text -->
+        <h3>v-text</h3>
+        <p v-text="message"></p>
+        <p>-----------------------------------</p>
+
+        <!-- JS式 -->
+        <h3>JS式</h3>
+        <p>{{ message }}</p>
+        <p>{{ number + 1 }}</p>
+        <p>{{ message.split('').reverse().join('') }}</p>
+        <p>{{ ok ? 'YES' : 'NO' }}</p>
+        <p>-----------------------------------</p>
+
+        <!-- v-bind省略式 -->
+        <h3>v-bind省略式</h3>
+        <a v-bind:href="url">v-bindの正規構文</a>
+        <br>
+        <a :href="url">v-bindの省略式</a>
+        <p>-----------------------------------</p>
+
+        <!-- 算出プロパティ -->
+        <h3>算出プロパティ</h3>
+        <p>{{ message.split('').reverse().join('') }}</p>
+        <p>{{ reversedMessage }}</p>
+        <p>-----------------------------------</p>
+
+        <!-- 算出プロパティとメソッドの比較 -->
+        <h3>算出プロパティとメソッドの比較</h3>
+        <p>(computed){{ reversedMessage }}</p>
+        <p>(method){{ reversedMessageMethod() }}</p>
+        <p>-----------------------------------</p>
+
+        <!-- 算出プロパティのgetterとsetter -->
+        <h3>算出プロパティのgetterとsetter</h3>
+        <p>
+            BasePrice:<input type="text" v-model="basePrice">
+        </p>
+        <p>TaxIncludedPrice:
+            <input type="text" v-model="taxIncludedPrice">
+        </p>
+        <p>-----------------------------------</p>
+
+        <!-- 算出プロパティのcache -->
+        <h3>算出プロパティのcache</h3>
+        <h4>computed:</h4>
+        <ol>
+            <li>{{ computedNumber }}</li>
+            <li>{{ computedNumber }}</li>
+            <li>{{ computedNumber }}</li>
+        </ol>
+        <h4>methods:</h4>
+        <ol>
+            <li>{{ methodNumber() }}</li>
+            <li>{{ methodNumber() }}</li>
+            <li>{{ methodNumber() }}</li>
+        </ol>
+        <p>-----------------------------------</p>
+    </div>
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

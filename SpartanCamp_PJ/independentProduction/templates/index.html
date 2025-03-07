@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h3 class="m-3">読み込む画像をアップロードしてください。</h3>
+
+    <div class="input-group mb-3">
+        <form action="/result" method="post" enctype="multipart/form-data">
+            <input type="file" class="form-control mb-3" name="uploadFile" accept=".png, .jpg, .jpeg, .webp">
+            <input type="submit" class="input-group-text mb-3" value="測定開始">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

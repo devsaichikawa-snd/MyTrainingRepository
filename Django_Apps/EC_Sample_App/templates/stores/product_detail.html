@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>商品詳細</h1>
+<div class="col-6 offset-3">
+    <div style="float: left; padding:0% 20px 20px 0"></div>
+    {% for picture in object.productpictures_set.all %}
+    {% if forloop.first %}
+    <img src="{{ picture.picture.url }}" width="200px" height="200px">
+    {% else %}
+    <img src="{{ picture.picture.url }}" width="50px" height="50px">
+    {% endif %}
+    {% endfor %}
+</div>
+<div>
+    <p>商品名:{{ object.name }}</p>
+    <p>値段:{{ object.price }}</p>
+    <p>在庫数:{{ object.stock }}</p>
+    {% if object.stock %}
+    <div>
+        {% if is_add %}
+        <p class="btn btn-danger">カートに登録済みです。</p>
+        {% else %}
+        <input type="number" id="quantity" name="quantity" min="1" max="{{ object.stock }}">
+        <br>
+        <button id="add_product" type="button" class="btn btn-primary mt-2">カートに追加</button>
+        {% endif %}
+    </div>
+    {% endif %}
+    <input type="hidden" name="csrfToken" value="{{ csrf_token }}">
+</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $('#add_product').click(function () {
+        var quantity = $("#quantity").val();
+        var token = $('input[name="csrfToken"]').attr('value');
+        // ajaxの送信前処理
+        $.ajaxSetup({
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRFToken', token);
+            }
+        })
+        // ajax
+        $.ajax({
+            url: "{% url 'stores:add_product' %}",
+            type: "POST",
+            data: { product_id: "{{ object.id }}", quantity: quantity },
+            dataType: "json",
+            success: function (json) {
+                if (json.message) {
+                    $('#add_product').attr('class', 'btn btn-danger');
+                    $('#add_product').html('カートに登録済みです。');
+                    $('#add_product').prop('disabled', true);
+                    alert(json.message);
+                }
+            },
+            error: function (error) {
+                alert(error.responseJSON.message);
+            }
+        });
+    });
+</script>
+{% endblock %}

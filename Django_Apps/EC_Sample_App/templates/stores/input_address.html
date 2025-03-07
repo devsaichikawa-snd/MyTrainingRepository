@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>住所登録</h1>
+<hr>
+<div class="col-10 offset-1">
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="住所を設定する">
+    </form>
+    <hr>
+    <h3>過去に利用した住所</h3>
+    {% for address in addresses %}
+    <p><a href="{% url 'stores:input_address' pk=address.id %}">{{ address }}</a></p>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- クラスのデータバインディング_introduction -->
+        <h3>クラスのデータバインディング_introduction</h3>
+        <p>
+            Hello <span v-bind:class="{ large: isLarge }">Vue.js!</span>
+        </p>
+        <p>
+            Hello <span :class="{ large: isLarge }">Vue.js!</span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- 複数のクラスを動的に切り替える -->
+        <h3>複数のクラスを動的に切り替える</h3>
+        <p>
+            Hello <span v-bind:class="{ large: isLarge, 'text-danger': hasError }">Vue.js!</span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- プレーンなクラス属性と共存させる -->
+        <h3>プレーンなクラス属性と共存させる</h3>
+        <p>
+            Hello <span class="bg-gray text-blue" v-bind:class="{ large: isLarge, 'text-danger': hasError }">Vue.js!</span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- 配列構文によるクラスのデータバインディング -->
+        <h3>配列構文によるクラスのデータバインディング</h3>
+        <p>
+            Hello <span v-bind:class="largeClass">Vue.js!</span>
+        </p>
+        <p>
+            Hello <span v-bind:class="[largeClass, dangerClass]">Vue.js!</span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- オブジェクトデータを利用する -->
+        <h3>オブジェクトデータを利用する</h3>
+        <p>
+            Hello <span v-bind:class="classObject">Vue.js!</span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- 三項演算子の利用 -->
+        <h3>三項演算子の利用</h3>
+        <p>
+            Hello
+            <span v-bind:class="isLargePara3 ? largeClassPara3: ''">
+                Vue.js!
+            </span>
+        </p>
+        <p>
+            Hello
+            <span v-bind:class="[isLargePara3 ? largeClassPara3: '', dangerClassPara3]">
+                Vue.js!
+            </span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- インラインスタイルのデータバインディング -->
+        <h3>インラインスタイルのデータバインディング</h3>
+        <p>
+            Hello
+            <span v-bind:style="{ color: color, fontSize: fontSize + 'px'}">
+                Vue.js!
+            </span>
+        </p>
+        <p>
+            Hello
+            <span v-bind:style="{ color: color, 'font-size': fontSize + 'px'}">
+                Vue.js!
+            </span>
+        </p>
+        <p>-------------------------------------------</p>
+
+        <!-- インラインスタイルのデータバインディングにオブジェクトを渡す -->
+        <h3>インラインスタイルのデータバインディングにオブジェクトを渡す</h3>
+        <p>
+            Hello
+            <span v-bind:style="styleObject">
+                Vue.js!
+            </span>
+        </p>
+        <p>-------------------------------------------</p>
+    </div>
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

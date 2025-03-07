@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- フォーム入力のバインディング -->
+        <h3>フォーム入力のバインディング</h3>
+        <p>{{ message1 }}</p>
+        <input type="text" v-model="message1">
+        <pre>{{ $data }}</pre>
+        <p>-------------------------------------------</p>
+
+        <!-- v-model利用時は属性が無視される -->
+        <h3>v-model利用時は属性が無視される</h3>
+        <p>{{ message2 }}</p>
+        <input type="text" v-model="message2" value="hogehoge">
+        <p>-------------------------------------------</p>
+
+        <!-- 複数行Textについて -->
+        <h3>複数行Textについて</h3>
+        <p>{{ message3 }}</p>
+        <!-- <textarea>{{ message1 }}</textarea> -->
+        <textarea v-model="message3">}</textarea>
+        <p>-------------------------------------------</p>
+
+        <!-- チェックボックス単体 -->
+        <h3>チェックボックス単体</h3>
+        <label for="checkbox">{{ checked1 }}</label>
+        <input type="checkbox" v-model="checked1">
+        <p>-------------------------------------------</p>
+
+        <!-- チェックボックス複数 -->
+        <h3>チェックボックス複数</h3>
+        <label for="red">Red</label>
+        <input type="checkbox" id="red" value="Red" v-model="colors1">
+        <label for="green">Green</label>
+        <input type="checkbox" id="green" value="Green" v-model="colors1">
+        <label for="blue">Blue</label>
+        <input type="checkbox" id="blue" value="Blue" v-model="colors1">
+        <p>{{ colors1 }}</p>
+        <pre>{{ $data }}</pre>
+        <p>-------------------------------------------</p>
+
+        <!-- ラジオボタン -->
+        <h3>ラジオボタン</h3>
+        <label for="red">Red</label>
+        <input type="radio" id="red" value="Red" v-model="color1">
+        <label for="green">Green</label>
+        <input type="radio" id="green" value="Green" v-model="color1">
+        <label for="blue">Blue</label>
+        <input type="radio" id="blue" value="Blue" v-model="color1">
+        <p>{{ color1 }}</p>
+        <pre>{{ $data }}</pre>
+        <p>-------------------------------------------</p>
+
+        <!-- セレクトボックス -->
+        <h3>セレクトボックス</h3>
+        <select v-model="selected1">
+            <option disabled value="">Please select one</option>
+            <option>Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+        </select>
+        <p>{{ selected1 }}</p>
+        <p>-------------------------------------------</p>
+
+        <!-- セレクトボックスの複数選択 -->
+        <h3>セレクトボックス</h3>
+        <select v-model="selected2" multiple>
+            <option>Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+        </select>
+        <p>{{ selected2 }}</p>
+        <p>-------------------------------------------</p>
+
+        <!-- v-modelの修飾子(.lazy) -->
+        <h3>v-modelの修飾子(.lazy)</h3>
+        <input type="text" v-model.lazy="message4">
+        <p>{{ message4 }}</p>
+        <p>-------------------------------------------</p>
+
+        <!-- v-modelの修飾子(.trim) -->
+        <h3>v-modelの修飾子(.trim)</h3>
+        <input type="text" v-model.trim="message5">
+        <br>
+        <input type="text" v-model="message5">
+        <p>{{ message5 }}</p>
+        <pre>{{ $data }}</pre>
+        <p>-------------------------------------------</p>
+
+        <!-- v-modelの修飾子(.number) -->
+        <h3>v-modelの修飾子(.number)</h3>
+        <input type="number" v-model.number="age1">
+        <p>{{ age1 + 10 }}</p>
+        <p>-------------------------------------------</p>
+    </div>
+
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

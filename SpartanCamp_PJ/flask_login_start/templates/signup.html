@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="mt-5 mb-5">SignUp</h1>
+
+<div class="container">
+    <form action="/signup" method="post">
+        <div class="col-4 offset-3">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="userName" placeholder="userName">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="password">
+                </div>
+                <div class="col-4 offset-4">
+                    <input class="btn btn-primary" type="submit" value="singup">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

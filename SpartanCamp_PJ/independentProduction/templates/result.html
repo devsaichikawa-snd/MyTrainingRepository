@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="m-3">測定結果</h2>
+    <p>測定結果は...『 {{ count }}匹 』です!</p>
+    <a href="http://127.0.0.1:5000">戻る</a>
+
+    <table class="table table-bordered mt-5" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    画像名
+                </th>
+                <th>
+                    検出個数
+                </th>
+                <th>
+                    作成日時
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in query_result %}
+            <tr>
+                <td>
+                    {{ content.id }}
+                </td>
+                <td>
+                    {{ content.uploadImages.image_name }}
+                </td>
+                <td>
+                    {{ content.count }}
+                </td>
+                <td>
+                    {{ content.created_date }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
